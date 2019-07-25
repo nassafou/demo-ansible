@@ -1,0 +1,22 @@
+---
+ - name: installe
+   when: user is defined
+   become: yes 
+   user: 
+     name: "{{ user }}"
+     comment: Yat Volibaer
+     shell: /bin/bash
+ #    groups: admin
+     append: yes
+
+ - name: Add ssh key
+   become: yes
+   when: user is defined 
+   authorized_key:
+     user: "{{ user }}"
+ #    state: present
+     key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+ - name: " {{ user }} devient sudoersa"
+   become: yes
+   when: user is defined 
+   template: src=templates/sudoers.j2 dest=/etc/sudoers.d/{{ user }}-sudoer validate='visudo -cf %s'

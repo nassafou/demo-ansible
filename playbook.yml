@@ -1,0 +1,14 @@
+---
+ - name: Installation web
+   hosts: web
+   remote_user: bob
+   vars:
+     user: volibaer
+
+   roles: 
+     - user
+     - utils
+     - nginx
+   
+        
+...
