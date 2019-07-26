@@ -4,6 +4,9 @@
    remote_user: bob
    vars:
      user: volibaer
+     domains: 
+        - local.dev
+        - demo.fr
 
    roles: 
      - user

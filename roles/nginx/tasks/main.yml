@@ -9,8 +9,8 @@
   become: yes
   service: name=nginx state=started enabled=true
 
-#- name: Supprimer default.conf
-#  become: yes
-#  file: path=/etc/nginx/sites-enabled/default state=absent
-
- 
+- name: Supprimer default.conf
+  become: yes
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  notify: nginx reload
+  with_items: domains
