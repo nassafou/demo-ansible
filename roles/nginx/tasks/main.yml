@@ -13,4 +13,12 @@
   become: yes
   file: path=/etc/nginx/sites-enabled/default state=absent
   notify: nginx reload
+
+- name: PHP
+  become: yes
+  include: php.yml
+
+- name: Site configuration
+  become: yes
+  include: site.yml
   with_items: domains

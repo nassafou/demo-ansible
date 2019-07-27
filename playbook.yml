@@ -5,8 +5,11 @@
    vars:
      user: volibaer
      domains: 
-        - local.dev
-        - demo.fr
+        - domain: local.dev
+          php: no
+          repo: https://github.com/Grafikart.github.io.git
+        - domain: demo.fr
+          php: yes
 
    roles: 
      - user
