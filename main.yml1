@@ -1,0 +1,7 @@
+   tasks:
+      - name: Installation de logiciel 
+        become: yes 
+        apt: name={{ item }} update_cache=yes state=latest
+        with_items: 
+            - vim 
+            - htop
